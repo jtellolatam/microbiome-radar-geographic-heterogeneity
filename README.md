@@ -1,5 +1,7 @@
 # Heterogeneidad geográfica de biomarcadores de microbioma intestinal
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24374407.svg)](https://doi.org/10.5281/zenodo.24374407)
+
 Código de procesamiento y análisis del manuscrito *Geographic heterogeneity of gut
 microbiome biomarkers across neurological conditions: sub-national discordance in
 ten cohorts from eleven cities in six countries*.
@@ -388,5 +390,9 @@ Tiempos orientativos en un equipo de sobremesa de ocho núcleos:
 
 **Cita:** si utiliza este código, cite el artículo *Geographic heterogeneity of gut
 microbiome biomarkers across neurological conditions: sub-national discordance in
-ten cohorts from eleven cities in six countries*. La referencia completa se añadirá
-cuando se publique.
+ten cohorts from eleven cities in six countries* (referencia completa pendiente de
+publicación) y el código:
+
+Tello Meryk, J. *Geographic heterogeneity of gut microbiome biomarkers across
+neurological conditions: analysis code*. Zenodo.
+[https://doi.org/10.5281/zenodo.24374407](https://doi.org/10.5281/zenodo.24374407)
