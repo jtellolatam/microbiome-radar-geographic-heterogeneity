@@ -155,14 +155,21 @@ if paneles:
     guardar(fig,"Figura_4_concordancia")
 print("Figura 5")
 disp=[]
-for brazo,f,ca,cb,la,lb in [
-    ("Alzheimer","contraste_oriente_occidente.csv","d_oriente","d_occidente","Oriente","Occidente"),
-    ("TEA","contraste_TEA_china_eeuu.csv","d_china","d_eeuu","China","EE. UU."),
-    ("Parkinson","direcciones_PD.csv","d_Finlandia","d_Rumania","Finlandia","Rumanía")]:
+for brazo,f,ca,cb,pa,pb,la,lb in [
+    ("Alzheimer","contraste_oriente_occidente.csv","delta_ori","delta_occ","p_ori","p_occ","Oriente","Occidente"),
+    ("TEA","contraste_TEA_china_eeuu.csv","d_china","d_eeuu","p_china","p_eeuu","China","EE. UU."),
+    ("Parkinson","direcciones_PD.csv","d_Finlandia","d_Rumania","p_Finlandia","p_Rumania","Finlandia","Rumanía")]:
     p=os.path.join(CC,f)
-    if not os.path.exists(p): continue
+    if not os.path.exists(p):
+        print(f"  AVISO Figura 5: no existe {f}, se omite {brazo}"); continue
     D2=pd.read_csv(p)
-    if ca in D2.columns and cb in D2.columns: disp.append((brazo,D2,ca,cb,la,lb))
+    faltan=[c for c in (ca,cb) if c not in D2.columns]
+    if faltan:
+        print(f"  AVISO Figura 5: {f} no trae {faltan}, se omite {brazo}"); continue
+    if "transversal" not in D2.columns and pa in D2.columns and pb in D2.columns:
+        a=D2[ca].astype(float); b=D2[cb].astype(float)
+        D2["transversal"]=((np.sign(a)==np.sign(b)) & (a.abs()>=0.10) & (b.abs()>=0.10) & (D2[pa]<0.05) & (D2[pb]<0.05))
+    disp.append((brazo,D2,ca,cb,la,lb))
 if disp:
     fig,axes=plt.subplots(1,len(disp),figsize=(3.9*len(disp),4.3))
     if len(disp)==1: axes=[axes]
