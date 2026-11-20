@@ -351,7 +351,8 @@ flowchart LR
     B1 --> F4["Figura 4"]
     B2 --> F4
     B3 --> F4
-    C2 --> F5["Figura 5"]
+    C1 --> F5["Figura 5"]
+    C2 --> F5
     C3 --> F5
     D1 --> F6["Figura 6"]
 ```
@@ -366,7 +367,9 @@ flowchart LR
 | 5 | Tamaño de efecto por región | `Figura_5_contraste_regional` | `17b_figuras.py` |
 | 6 | Origen frente a condición | `Figura_6_origen_vs_condicion` | `17b_figuras.py` |
 
-`17b_figuras.py` omite sin error cualquier panel cuyo fichero de entrada no exista.
+`17b_figuras.py` omite cualquier panel cuyo fichero de entrada no exista. En la
+Figura 5 imprime un aviso en consola por cada brazo omitido y, si el CSV no trae la
+columna `transversal`, la calcula con el mismo criterio que `13` y `14`.
 
 ## Reproducibilidad
 
